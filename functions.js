@@ -79,3 +79,20 @@ function displayAreaCode(inputId, outputId) {
 
     document.getElementById(outputId).innerHTML = outputText;
 }
+
+function getCoCode(phoneNum) {
+
+    var CoCode;
+
+    try {
+        CoCode = between(phoneNum, " ", "-");
+        CoCode = CoCode.trim();
+        if (CoCode.length == 3 && Number(CoCode)) {
+            return CoCode;
+        } else {
+            throw new Error("Invalid area code: " + areaCode);
+        }
+    } catch (error) {
+        throw new Error("Invalid phone number: " + error.message);
+    }
+}
