@@ -85,14 +85,30 @@ function getCoCode(phoneNum) {
     var CoCode;
 
     try {
-        CoCode = between(phoneNum, " ", "-");
+        CoCode = between(phoneNum, " " , "-");
         CoCode = CoCode.trim();
         if (CoCode.length == 3 && Number(CoCode)) {
             return CoCode;
         } else {
-            throw new Error("Invalid area code: " + areaCode);
+            throw new Error("Invalid  CoCode: " + CoCode);
         }
     } catch (error) {
         throw new Error("Invalid phone number: " + error.message);
     }
+}
+
+function displayCoCode(inputCoId, outputCoId) {
+    var outputCoText = "";
+    var phoneNum = document.getElementById(inputCoId).value;
+
+    // Now try to get the code
+    try {
+        var CoCode = getCoCode(phoneNum);
+        outputCoText = "Your CO code is " + CoCode;
+    } catch (error) {
+        console.log(error.message);
+        outputCoText = error.message;
+    }
+
+    document.getElementById(outputCoId).innerHTML = outputCoText;
 }
