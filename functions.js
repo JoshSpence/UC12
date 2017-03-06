@@ -23,6 +23,19 @@ function between(string, start, end) {
     return string.slice(startAt, endAt);
 }
 
+ function validPhone(phoneNum) {
+  if(phoneNum.length == 12);
+  if(phoneNum.slice(9,10) == "-");
+  if(phoneNum.slice(0,1) == "(" && phoneNum.slice(4,5) == ")"){
+     var str = "Valid";
+    }
+    else {
+     var str = "Invalid";
+    }
+ return str;
+
+}
+
 /**
  * Returns an area code from a phone number: (###) ###-####
  * @param   {string} phoneNum The phone number
