@@ -12,13 +12,11 @@
     <p>Please enter your Phone Number:</p>
     <input type="text" id="phone">
     <p/>
-   <input type="button" onclick="displayAreaCode('phone', 'output')" value="Area Code">
+   <input type="button" onclick="displayAreaCode('phone', 'output'), displayCoCode('phone', 'outputCoId'), displayLineCode('phone', 'outputLineId')" value="Check">
    <p/>
    <div id="output"></div>
-     <p>Get your CO code</p>
-    <input type="text" id="CoCode">
-    <p/>
-    <input type="button" onclick="displayCoCode('CoCode', 'outputCoId')" value="CO Code">
-    <div id="outputCoId"></div>
+   <div id="outputCoId"></div>
+   <div id="outputLineId"></div>
+
 </body>
 </html>

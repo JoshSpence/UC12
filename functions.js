@@ -80,6 +80,7 @@ function displayAreaCode(inputId, outputId) {
     document.getElementById(outputId).innerHTML = outputText;
 }
 
+
 function getCoCode(phoneNum) {
 
     var CoCode;
@@ -111,4 +112,33 @@ function displayCoCode(inputCoId, outputCoId) {
     }
 
     document.getElementById(outputCoId).innerHTML = outputCoText;
+}
+
+function getLineCode(phoneNum) {
+    var lineCode;
+        lineCode = phoneNum.slice(phoneNum.indexOf("-") + 1, phoneNum.length);
+        lineCode = lineCode.trim();
+        console.log(lineCode);
+
+    if (lineCode.length == 4 && Number(lineCode)) {
+            return lineCode;
+    } else {
+            throw new Error("Invalid  LineCode: " + LineCode);
+    }
+
+}
+
+function displayLineCode(inputLineId, outputLineId) {
+    var outputLineText = "";
+    var phoneNum = document.getElementById(inputLineId).value;
+
+    try {
+        var LineCode = getLineCode(phoneNum);
+        outputLineText = "Your Line code is " + LineCode;
+    } catch (error) {
+        console.log(error.message);
+        outputLineText = error.message;
+    }
+
+    document.getElementById(outputLineId).innerHTML = outputLineText;
 }
